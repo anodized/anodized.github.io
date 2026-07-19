@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anodized Software</title>
+  <meta name="description" content="Anodized Software, Inc. makes good software, built to last: obsessively polished, quietly durable apps. Our first is Tetsudoku, a Sudoku app that teaches the next move.">
+  <link rel="canonical" href="https://anodizedsoftware.com/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Anodized Software">
+  <meta property="og:description" content="Good software, built to last. Obsessively polished, quietly durable apps.">
+  <meta property="og:url" content="https://anodizedsoftware.com/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Figtree, the house typeface -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Set the theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved) document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    <span class="theme-toggle__icon" aria-hidden="true"></span>
+  </button>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero wrap">
+      <h1 class="hero__title"><span class="anodize-text">Anodized</span> Software</h1>
+      <p class="hero__tagline">Good software, built to last.</p>
+      <p class="hero__lead">Anodizing turns raw metal into something harder, finer, and made to last. We aim for the same with our apps: obsessively polished, quietly durable, and a genuine pleasure to use. Here's what we've been making.</p>
+    </section>
+
+    <!-- Products -->
+    <section class="section wrap" id="products">
+      <h2 class="section__title">Our products</h2>
+      <div class="products">
+        <a class="product" href="https://tetsudoku.app/">
+          <img class="product__icon" src="assets/tetsudoku-icon.png" alt="Tetsudoku" width="72" height="72">
+          <div class="product__body">
+            <p class="product__name">Tetsudoku</p>
+            <p class="product__tagline">Sudoku mastery, day by day</p>
+            <p class="product__desc">Four fresh puzzles every morning. And when you're stuck, it teaches the next move, not just the answer. For iPhone &amp; iPad.</p>
+          </div>
+          <span class="product__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p class="footer__copy">© 2011–2026 Anodized Software, Inc. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Theme toggle
+      var toggle = document.getElementById('theme-toggle');
+      function current() {
+        return document.documentElement.dataset.theme
+          || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      }
+      toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
